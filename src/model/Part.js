@@ -1,5 +1,5 @@
 import Category from "freestyle-judging/model/Category";
-import calculateScore from "freestyle-judging/helpers";
+import {handleScoring} from "freestyle-judging/helpers";
 
 export default class Part {
 
@@ -42,13 +42,15 @@ export default class Part {
 	}
 
 	calculateScore() {
+		let digits = this.getJudgingSystem().getOption('digits');
 		let scoring = this.data.scoring;
 		let data = [];
 		this.categories.forEach(c => data.push({
 			value: c.getScore()
 		}));
 
-		this.score = calculateScore(scoring, data, this);
+		this.score = handleScoring(this, scoring, data, digits);
+		return this.score;
 	}
 
 	getScore() {

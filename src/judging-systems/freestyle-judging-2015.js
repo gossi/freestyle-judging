@@ -2,12 +2,20 @@ export var judgingSystemDescriptor = {
 	label: "Freestyle Judging System 2015",
 	author: "IUF",
 	options: {
-		digits: 3
+		digits: 3,
+		colors: {
+			"<25": '#660000',
+			"<50": '#DD3A00',
+			"<70": '#FF8000',
+			"<80": '#FFD700',
+			"<90": '#00B2DD',
+			">=90": '#00B800'
+		}
 	},
 	scoring: 'average',
 	parts: {
 		performance: {
-			scoring: 'average',
+			scoring: 'sum',
 			label: "Performance",
 			categories: {
 				execution: {
@@ -17,7 +25,7 @@ export var judgingSystemDescriptor = {
 						carriage: {
 							label: "Carriage",
 							intervals: {
-								"<1": "nada",
+								"<1": "no carriage",
 								"<2": "very poor line of carriage",
 								"<3": "poor line of carriage",
 								"<4": "variable line of carriage",

@@ -1,15 +1,15 @@
 const funnel = require('broccoli-funnel');
 const concat = require('broccoli-concat');
 const mergeTrees = require('broccoli-merge-trees');
-const esTranspiler = require('broccoli-babel-transpiler');
+const babel = require('broccoli-babel-transpiler');
 const pkg = require('./package.json');
 const injectLivereload = require('broccoli-inject-livereload');
 
 // const src = injectLivereload('src');
 const src = 'src';
-const pub = 'public'
+const pub = 'public';
 
-const js = esTranspiler(src, {
+const js = babel(src, {
   stage: 0,
   moduleIds: true,
   modules: 'amd',
@@ -36,8 +36,16 @@ const js = esTranspiler(src, {
   }
 });
 
+// const babelCorePath = 'node_modules/babel/node_modules/babel-core';
+// const polyfill = funnel(babelCorePath, {
+//   files: ['browser-polyfill.js']
+// });
+//
+// js = mergeTrees([polyfill, js]);
+
 const app = concat(js, {
   inputFiles: [
+    'browser-polyfill.js',
     '**/*.js'
   ],
   outputFile: '/' + pkg.name + '.js'

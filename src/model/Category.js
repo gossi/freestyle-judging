@@ -1,5 +1,5 @@
 import Criterion from "freestyle-judging/model/Criterion";
-import calculateScore from "freestyle-judging/helpers";
+import {handleScoring} from "freestyle-judging/helpers";
 
 export default class Category {
 	constructor(part, data) {
@@ -9,12 +9,6 @@ export default class Category {
 		this.parse(data);
 
 		this.score = 0;
-
-		// nodes
-		this.rootNode;
-		this.labelNode;
-		this.valueNode;
-		this.sliderNode;
 	}
 
 	parse(data) {
@@ -22,25 +16,6 @@ export default class Category {
 			data.criteria[crit].id = crit;
 			this.criteria.set(crit, new Criterion(this, data.criteria[crit]));
 		}
-	}
-
-	construct(parent) {
-		var fieldset = document.createElement('fieldset');
-		fieldset.className = 'col-xs-4';
-		fieldset.innerHTML = '<legend id="' + this.getId() + '-label">' + this.getLabel() + '</legend>';
-		fieldset.innerHTML += '<input type="range" readonly min="0" max="' + Helpers.getMaxRangeValue() + '" value="0" id="' + this.getId() + '-slider">';
-		fieldset.innerHTML += '<input class="form-control input-sm sheet-value category-value" type="number" readonly id="' + this.getId() + '-value" value="0" min="0" max="10"><p>&nbsp;</p>';
-		parent.appendChild(fieldset);
-
-
-		this.rootNode = fieldset;
-		this.labelNode = document.getElementById(this.getId() + '-label');
-		this.valueNode = document.getElementById(this.getId() + '-value');
-		this.sliderNode = document.getElementById(this.getId() + '-slider');
-	}
-
-	getChildContainer() {
-		return this.rootNode;
 	}
 
 	getId() {
@@ -66,13 +41,20 @@ export default class Category {
 	}
 
 	calculateScore() {
+		let digits = this.getPart().getJudgingSystem().getOption('digits');
 		let scoring = this.data.scoring;
 		let data = [];
-		this.parts.forEach(c => data.push({
+		this.criteria.forEach(c => data.push({
 			value: c.getValue()
 		}));
 
-		this.score = calculateScore(scoring, data, this);
+		// let data = Array.from(this.criteria.values()).map(c => data.push({
+		// 	value: c.getValue()
+		// }));
+
+		this.score = handleScoring(this, scoring, data, digits);
+		this.part.calculateScore();
+		return this.score;
 	}
 
 	getScore() {
@@ -80,6 +62,6 @@ export default class Category {
 	}
 
 	setScore(score) {
-		this.score = score;
+		this.score = parseFloat(score);
 	}
 };

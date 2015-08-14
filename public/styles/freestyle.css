@@ -12,6 +12,11 @@ input[type=range] {
 	padding: 0;
 }
 
+.part-score {
+    margin-bottom: 10px;
+    font-size: 120%;
+}
+
 .criterion {
 	padding: 0;
 }
@@ -24,36 +29,12 @@ input[type=range] {
 	margin-left: 20px;
 }
 
-.category-value {
+.category-score {
 	display: inline-block;
-	width: 50px;
+	width: 55px;
 	margin-left: 10px;
 }
 
 .description {
-
-}
-
-.description[data-value="1"] {
-	color: #00B800;
-}
-
-.description[data-value="2"] {
-	color: #00B2DD;
-}
-
-.description[data-value="3"] {
-	color: #FFD700;
-}
-
-.description[data-value="4"] {
-	color: #FF8000;
-}
-
-.description[data-value="5"] {
-	color: #DD3A00;
-}
-
-.description[data-value="6"] {
-	color: #660000;
+    min-height: 3px;
 }

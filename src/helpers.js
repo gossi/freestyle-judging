@@ -1,22 +1,36 @@
 export function average(numbers = []) {
+	return sum(numbers) / numbers.length;
+}
+
+export function sum(numbers = []) {
 	let sum = 0;
 	for (let item of numbers) {
 		sum += item;
 	}
-	return sum / numbers.length;
+	return sum;
 }
 
-export function scoring(algo, data, scope) {
+export function handleScoring(scope, algo, data, digits) {
+	let score = 0;
+
 	if (typeof algo == 'function') {
-		return algo.call(scope);
+		score = algo.call(scope);
 	} else {
 		switch (algo) {
 			case 'average':
-				let scores = data.map(entry => entry.value);
-				return average(scores);
+				var scores = data.map(entry => entry.value);
+				score = average(scores);
+				break;
+
+			case 'sum':
+				var scores = data.map(entry => entry.value);
+				score = sum(scores);
 				break;
 		}
 	}
+
+	score = Math.round(score * Math.pow(10, digits)) / Math.pow(10, digits);
+	return score;
 }
 
 export function getMaxValue(judgingSystem) {
