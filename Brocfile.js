@@ -45,7 +45,7 @@ const js = babel(src, {
 
 const app = concat(js, {
   inputFiles: [
-    'browser-polyfill.js',
+    // 'browser-polyfill.js',
     '**/*.js'
   ],
   outputFile: '/' + pkg.name + '.js'
