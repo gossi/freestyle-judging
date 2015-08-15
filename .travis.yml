@@ -4,7 +4,8 @@ env:
     - secure: "A65DfLuonJzeu4oJI+qyMyP+rcwZcxzBFGtokzkqxizwCoIMnNmw5t12zbOsxDHumNOjI/rSdDQCTDxIt2wOfH+S1OWnT7Ru2/YbS2AtcY5HYBkyrOe5HS8kP/TcsZtVasjgOZFedPgu3GuvnRBnxRwSM0TdhZ+E+/i5gUSMoOlM/WbIqRFtRPGnX3H2SKLM7uxHUx2YkD5Uo7QU4oPy6ovxKMPRAAqgkQwB87eETv28T8QGl7xzFcGODVWVJrG/hkRVH9sPbkmtfyoxwWqXM1c4DP05mRidpGYiczvDZwrh0K3zbiNlSO87SpSTZrnA0MaQR5DDmlJBkll57KRvomWgvPj4DvXo164wxOTNQ8kFzkRElc1xA0onnhPi98JiH+XW2MMDbFS6rLfh6fosmtRg3D1KeKp7s0x1xuR5tdfITJc6IemgGXDVtRNPSzUMVXTtDMpqoNjxBJPpfNum8QVIPyIeuYv/NHPuI4iSDZSWqQWKLXlekfs0+fTZC8JnvsnHe7rHnV7n7EjNxYjolmKcfJBR3ZvOAJRCk9ilKtPKcRzkBlIO8H57/JKB/Amuyb8ZLgY37n0vhteZVzEo9MTJYmsuR8+ZWTeooi6piKlsx2HChHV9eRVx3Bgbv/6p27W6HqqRhxBCM5m8M0exx67HjdUgUOsfY7pBH/EGLVo="
 
 install:
-  - npm install broccoli-cli
+  - npm install -g broccoli-cli
+  - npm install
 
 script:
   - npm run build
