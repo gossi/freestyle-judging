@@ -12,5 +12,5 @@ script:
   - npm run build
 
 after_success:
-#  - mv dist/ uniscience/
-  - ncftpput -u $FTPUSER -p $FTPPASS -R -E einradfahren.de /uniscience.einradfahren.de dist/
+  - mv dist/ freestyle-judging/
+  - ncftpput -u $FTPUSER -p $FTPPASS -R einradfahren.de /uniscience.einradfahren.de freestyle-judging/
