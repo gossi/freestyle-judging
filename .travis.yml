@@ -7,4 +7,4 @@ script:
   - npm run build
 
 after_success:
-  "find dist/ -type f -exec curl -u $FTPUSER:$FTPPASS --ftp-create-dirs -T {} ftp://einradfahren.de/uniscience.einradfahren.de/{} \;"
+  "find dist/ -type f -exec curl -u $FTPUSER:$FTPPASS --ftp-create-dirs -T {} ftp://einradfahren.de/uniscience.einradfahren.de/{} \\;"
