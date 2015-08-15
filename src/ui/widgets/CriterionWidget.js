@@ -20,7 +20,7 @@ export default class CriterionWidget {
 		row.className = 'criterion col-xs-12';
 		row.innerHTML = `
 			<div class="row"><label class="col-xs-4">${this.model.getLabel()}</label>
-			<input class="col-xs-4 col-xs-offset-1" type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider">
+			<input class="col-xs-4" type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider">
 			<input class="col-xs-2 form-control input-sm sheet-value" type="number" id="crit-${this.model.getId()}-value" value="0" min="0" max="10" step="0.25"></div>
 			<div class="description text-right small" id="crit-${this.model.getId()}-description"></div>
 		`;
