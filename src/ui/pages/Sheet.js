@@ -50,7 +50,12 @@ export default class Sheet {
 
 	changeLanguage(e) {
 		let elems = document.querySelectorAll('*[data-i18n]');
-		for (let elem of elems) {
+		// for (let elem of elems) {
+		// 	elem.textContent = this.translate(elem.dataset.i18n);
+		// }
+
+		for (let i = 0; i < elems.length; i++) {
+			let elem = elems[i];
 			elem.textContent = this.translate(elem.dataset.i18n);
 		}
 	}

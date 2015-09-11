@@ -2,7 +2,7 @@ export var judgingSystemDescriptor = {
 	label: "Freestyle Judging System 2015",
 	author: "IUF",
 	options: {
-		digits: 3,
+		digits: 2,
 		colors: {
 			"<25": '#660000',
 			"<50": '#DD3A00',
