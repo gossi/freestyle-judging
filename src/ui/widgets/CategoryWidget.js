@@ -18,7 +18,7 @@ export default class CategoryWidget {
 		fieldset.id = `cat-${this.model.getId()}`;
 		fieldset.className = "col-xs-4";
 		fieldset.innerHTML = `
-			<legend id="cat-${this.model.getId()}-label">${this.model.getLabel()}</legend>
+			<legend id="cat-${this.model.getId()}-label" data-i18n="${this.model.getLabel()}">${this.getSheet().translate(this.model.getLabel())}</legend>
 			<input type="range" readonly min="0" max="${max}" value="0" id="cat-${this.model.getId()}-slider">
 			<input class="form-control input-sm sheet-value category-score" type="number" readonly id="cat-${this.model.getId()}-score" value="0" min="0" max="10">
 			<p>&nbsp;</p>
@@ -33,6 +33,10 @@ export default class CategoryWidget {
 		for (let crit of this.model.getCriteria()) {
 			new CriterionWidget(this, crit);
 		}
+	}
+
+	getSheet() {
+		return this.parent.getSheet();
 	}
 
 	getRootNode() {

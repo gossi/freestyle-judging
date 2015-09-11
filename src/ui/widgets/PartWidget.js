@@ -28,4 +28,8 @@ export default class PartWidget {
 	updateScore() {
 		this.scoreNode.innerHTML = this.model.getScore();
 	}
+
+	getSheet() {
+		return this.parent;
+	}
 }

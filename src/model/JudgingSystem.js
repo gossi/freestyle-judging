@@ -16,6 +16,10 @@ export default class JudgingSystem {
 			data.parts[part].id = part;
 			this.parts.set(part, new Part(this, data.parts[part]));
 		}
+
+		if (!'i18n' in this.data) {
+			this.data.i18n = {'en': {}};
+		}
 	}
 
 	getName() {
@@ -62,6 +66,37 @@ export default class JudgingSystem {
 
 	setScore(score) {
 		this.score = score;
+	}
+
+	getI18n(label, language = 'en') {
+		let getLang = (language) => {
+			if (language in this.data.i18n) {
+				return this.data.i18n[language];
+			}
+			return null;
+		};
+
+		let i = 0;
+		let lang = null;
+		let languages = [language, 'en'];
+
+		do {
+			lang = getLang(languages[i++]);
+		} while (lang === null || i < languages.length - 1);
+
+		if (lang == null) {
+			return label;
+		}
+
+		if (label in lang) {
+			return lang[label];
+		}
+
+		return label;
+	}
+
+	getLanguages() {
+		return Object.keys(this.data.i18n);
 	}
 
 }

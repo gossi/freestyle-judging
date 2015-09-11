@@ -19,8 +19,8 @@ export default class CriterionWidget {
 		row.id = `crit-${this.model.getId()}-row`;
 		row.className = 'criterion col-xs-12';
 		row.innerHTML = `
-			<div class="row"><label class="col-xs-4">${this.model.getLabel()}</label>
-			<input class="col-xs-4" type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider">
+			<div class="row"><label class="col-xs-4" data-i18n="${this.model.getLabel()}">${this.getSheet().translate(this.model.getLabel())}</label>
+			<span class="col-xs-5"><input type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider"></span>
 			<input class="col-xs-2 form-control input-sm sheet-value" type="number" id="crit-${this.model.getId()}-value" value="0" min="0" max="10" step="0.25"></div>
 			<div class="description text-right small" id="crit-${this.model.getId()}-description"></div>
 		`;
@@ -81,16 +81,26 @@ export default class CriterionWidget {
 			return;
 		}
 
-		let colors = this.model.getCategory().getPart().getJudgingSystem().getOption('colors');
-		if (colors == undefined) {
-			return;
-		}
-
 		let value = this.model.getValue();
-		let color = getIntervalValue(Math.round(value * 10), colors);
 		let desc = getIntervalValue(value, intervals);
 
-		this.descriptionNode.innerHTML = desc;
-		this.descriptionNode.style.color = color;
+		if (typeof(desc) == 'undefined') {
+			this.descriptionNode.innerHTML = '';
+			this.descriptionNode.removeDataAttribute('i18n');
+		} else {
+			this.descriptionNode.innerHTML = this.getSheet().translate(desc);
+			this.descriptionNode.dataset.i18n = desc;
+		}
+
+		let colors = this.model.getCategory().getPart().getJudgingSystem().getOption('colors');
+		if (colors != undefined) {
+			let color = getIntervalValue(Math.round(value * 10), colors);
+			this.descriptionNode.style.color = color;
+		}
+
+	}
+
+	getSheet() {
+		return this.parent.getSheet();
 	}
 }
