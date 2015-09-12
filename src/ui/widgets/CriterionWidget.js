@@ -50,6 +50,9 @@ export default class CriterionWidget {
 
 			// update slider
 			else if (e.target.type == 'number') {
+				if (this.valueNode.value > this.valueNode.max) {
+					this.valueNode.value = this.valueNode.max;
+				}
 				this.updateSlider();
 			}
 
@@ -86,7 +89,7 @@ export default class CriterionWidget {
 
 		if (typeof(desc) == 'undefined') {
 			this.descriptionNode.innerHTML = '';
-			this.descriptionNode.removeDataAttribute('i18n');
+			delete this.descriptionNode.dataset.i18n;
 		} else {
 			this.descriptionNode.innerHTML = this.getSheet().translate(desc);
 			this.descriptionNode.dataset.i18n = desc;
