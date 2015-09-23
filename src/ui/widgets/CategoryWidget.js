@@ -21,7 +21,7 @@ export default class CategoryWidget {
 		fieldset.innerHTML = `
 			<legend id="cat-${this.model.getId()}-label" data-i18n="${this.model.getLabel()}">${this.getSheet().translate(this.model.getLabel())}</legend>
 			<input type="range" min="0" max="${max}" value="0" id="cat-${this.model.getId()}-slider">
-			<input class="form-control input-sm sheet-value category-score" type="number" id="cat-${this.model.getId()}-score" value="0" min="0" max="10">
+			<input class="form-control input-sm sheet-value category-score" type="number" id="cat-${this.model.getId()}-score" value="0" min="0" max="10" step="0.25">
 			<p>&nbsp;</p>
 		`;
 		root.appendChild(fieldset);
