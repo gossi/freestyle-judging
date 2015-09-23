@@ -50,7 +50,10 @@ export default class CriterionWidget {
 
 			// update slider
 			else if (e.target.type == 'number') {
-				if (this.valueNode.value > this.valueNode.max) {
+				let val = parseInt(this.valueNode.value);
+				let max = parseInt(this.valueNode.max);
+
+				if (val > max) {
 					this.valueNode.value = this.valueNode.max;
 				}
 				this.updateSlider();

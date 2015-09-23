@@ -2,6 +2,7 @@ import Criterion from "freestyle-judging/model/Criterion";
 import {handleScoring} from "freestyle-judging/helpers";
 
 export default class Category {
+
 	constructor(part, data) {
 		this.part = part;
 		this.data = data;
@@ -48,10 +49,6 @@ export default class Category {
 			value: c.getValue()
 		}));
 
-		// let data = Array.from(this.criteria.values()).map(c => data.push({
-		// 	value: c.getValue()
-		// }));
-
 		this.score = handleScoring(this, scoring, data, digits);
 		this.part.calculateScore();
 		return this.score;
@@ -63,5 +60,6 @@ export default class Category {
 
 	setScore(score) {
 		this.score = parseFloat(score);
+		this.part.calculateScore();
 	}
 };
