@@ -1,5 +1,6 @@
 main {
     margin-top: 70px;
+    margin-bottom: 20px;
 }
 
 .tab-pane {
@@ -46,4 +47,10 @@ input[type=range] {
 
 .description {
     min-height: 3px;
+}
+
+@media (max-width: 768px) {
+    .category.col-xs-4 {
+        width: 100%;
+    }
 }

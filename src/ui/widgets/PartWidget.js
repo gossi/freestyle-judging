@@ -14,7 +14,7 @@ export default class PartWidget {
 
 		parent.innerHTML = `
 			<div class="part-score col-xs-12">Score: <span id="part-${this.model.getId()}-score" class="text-success"></span></div>
-			<div id="part-${this.model.getId()}-categories">
+			<div id="part-${this.model.getId()}-categories" class="row">
 			</div>
 		`;
 

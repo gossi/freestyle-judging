@@ -17,7 +17,7 @@ export default class CategoryWidget {
 		let max = getMaxValue(this.model.getPart().getJudgingSystem());
 		let fieldset = document.createElement('fieldset');
 		fieldset.id = `cat-${this.model.getId()}`;
-		fieldset.className = "col-xs-4";
+		fieldset.className = "category col-xs-4";
 		fieldset.innerHTML = `
 			<legend id="cat-${this.model.getId()}-label" data-i18n="${this.model.getLabel()}">${this.getSheet().translate(this.model.getLabel())}</legend>
 			<input type="range" min="0" max="${max}" value="0" id="cat-${this.model.getId()}-slider">
