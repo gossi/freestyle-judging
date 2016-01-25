@@ -15,6 +15,7 @@ input[type=range] {
     display: inline;
     width: auto;
 	padding: 0;
+    position: relative;
 }
 
 .part-score {
@@ -24,6 +25,19 @@ input[type=range] {
 
 .criterion {
 	padding: 0;
+}
+
+.strokes {
+    position: absolute;
+    width: 120px;
+    margin-left: 10px;
+}
+
+.stroke {
+    position: absolute;
+    height: 22px;
+    width: 1px;
+    background-color: #DDD;
 }
 
 .sheet-value {

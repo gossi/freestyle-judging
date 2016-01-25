@@ -176,29 +176,36 @@ export var judgingSystemDescriptor = {
 						realization: {
 							label: "continuity_musical-realization",
 							intervals: {
-								">=8": "8-realization",
-								">=6": "6-realization",
+								">=9": "9-realization",
+								">=5": "5-realization",
+								">=2": "2-realization",
 								">=0": "0-realization"
 							}
 						},
 						Expression: {
 							label: "expression",
 							intervals: {
+								">=9": "9-expression",
 								">=5": "5-expression",
+								">=2": "2-expression",
 								">=0": "0-expression"
 							}
 						},
 						finesse: {
 							label: "finesse",
 							intervals: {
+								">=9": "9-finesse",
 								">=5": "5-finesse",
+								">=2": "2-finesse",
 								">=0": "0-finesse"
 							}
 						},
 						timing: {
 							label: "timing",
 							intervals: {
+								">=9": "9-timing",
 								">=5": "5-timing",
+								">=2": "2-timing",
 								">=0": "0-timing"
 							}
 						}
@@ -323,20 +330,27 @@ export var judgingSystemDescriptor = {
 			"music": "Music / Timing",
 
 			"continuity_musical-realization": "Continuity & Musical Realization",
-			"8-realization": "Proper type of musical realization is used the entire routine with effortless continuity",
-			"6-realization": "Above average use of the proper musical realization for the majority of the routine",
+			"9-realization": "Proper type of musical realization is used the entire routine with effortless continuity",
+			"5-realization": "Above average use of the proper musical realization for the majority of the routine",
+			"2-realization": "Rider uses the proper musical realization for some of the routine, music seems like background instead of inspiration",
 			"0-realization": "Rider never uses the proper type of musical realization, the routine could be done without any music and it would have looked the same",
 
 			"expression": "Expression",
-			"5-expression": "rider/music/nuances as one motivation from “heart”",
+			"9-expression": "Rider/music/nuances as one motivation from the “heart”",
+			"5-expression": "Rider/music/nuances work together to create one fluid routine for the majority of the time",
+			"2-expression": "The routine has some cohesion but the music/nuances/rider are not fully integrated",
 			"0-expression": "The routine seems disjointed and the music/nuances/rider seem completely disconnected",
 
 			"finesse": "Finesse",
-			"5-finesse": "Rider superbly and expertly uses the nuances of the music to reflect the overall concept of the routine",
+			"9-finesse": "Rider superbly and expertly uses the nuances of the music to reflect the overall concept of the routine",
+			"5-finesse": "Rider uses the nuances of the music for the majority of the routine but misses some key moments in the music",
+			"2-finesse": "Rider rarely uses the music as inspiration and does not utilize the nuances presented in the music to better the routine",
 			"0-finesse": "Rider never looks deeper into the music to utilize the nuances, routine has a monotone feeling",
 
 			"timing": "Timing",
-			"5-timing": "The rider expertly uses their movements to create meaningful moments which, when put all together, produce a cohesive, well-timed routine",
+			"9-timing": "The rider expertly uses their movements to create meaningful moments which, when put all together, produce a cohesive, well-timed routine",
+			"5-timing": "The rider creates a bond between the routine and the music that is apparent for the majority of the routine",
+			"2-timing": "The rider matches the timing of the music sometimes but often seems unconnected to the music during the routine",
 			"0-timing": "Movements seem unplanned and are placed in a way that leads to a lack of timing whatsoever",
 		},
 		"de": {
@@ -454,20 +468,27 @@ export var judgingSystemDescriptor = {
 			"music": "Musik / Timing",
 
 			"continuity_musical-realization": "Kontinuität & Musikalische Umsetzung",
-			"8-realization": "Geeignete musikalische Umsetzung wird kontinuierlich während der gesamten Kür genutzt",
-			"6-realization": "Die genutzte musikalische Umsetzung ist etwas über Durchschnitt aber zu großen Teilen der Musik gegenwärtig",
+			"9-realization": "Geeignete musikalische Umsetzung wird kontinuierlich während der gesamten Kür genutzt",
+			"5-realization": "Die genutzte musikalische Umsetzung ist etwas über Durchschnitt aber zu großen Teilen der Musik gegenwärtig",
+			"2-realization": "Die genutzte musikalische Umsetzung passt zu einigen Stellen, die Musik läu  aber zu größtenteils im Hintergrund",
 			"0-realization": "Der Fahrer nutzt nie eine geeignete musikalische Umsetzung, die Kür sähe auch ohne ohne Musik gleich aus",
 
 			"expression": "Expression",
-			"5-expression": "Fahrer, Musik und Nuancen kommen von „Herzen“",
+			"9-expression": "Fahrer, Musik und Nuancen kommen von „Herzen“",
+			"5-expression": "Fahrer, Musik und Nuancen passen zu großen Teilen der Kür zusammen, um ein stimmiges Gesamtbild zu erzeugen",
+			"2-expression": "Die Kür bietet hier und da einige Zusammenhalte aber Fahrer, Musik und Nuancen sind nicht integriert",
 			"0-expression": "Die Kür sieht zerstückelt aus und Fahrer, Musik und Nuancen sind nicht miteinander verbunden",
 
 			"finesse": "Finesse",
-			"5-finesse": "Der Fahrer verwandelt die Nuancen der Musik meisterhaft und ausgezeichnet und pflegt sie in das Gesamtkonzept der Kür ein",
+			"9-finesse": "Der Fahrer verwandelt die Nuancen der Musik meisterhaft und ausgezeichnet und pflegt sie in das Gesamtkonzept der Kür ein",
+			"5-finesse": "Der Fahrer verwandelt die Nuancen der Musik zu großen Teilen der Kür um, verpasst aber einige wichtige essentielle Momente",
+			"2-finesse": "Der Fahrer nutzt die Musik selten als Inspiration und Nuancen werden nicht genutzt um eine bessere Kür zu zeigen",
 			"0-finesse": "Der Fahrer missachtet die Nuancen der Musik; die Kür ist monoton",
 
 			"timing": "Timing",
-			"5-timing": "Der Fahrer kreiert meisterhaft ausdrucksstarke Momente durch Bewegungen, die zusammengesetzt eine bindende, wohl-abgestimmte Kür ergeben",
+			"9-timing": "Der Fahrer kreiert meisterhaft ausdrucksstarke Momente durch Bewegungen, die zusammengesetzt eine bindende, wohl-abgestimmte Kür ergeben",
+			"5-timing": "Der Fahrer schafft eine Verbindung zwischen Musik und Kür, die zu großen Teilen der Kür gegenwärtig ist",
+			"2-timing": "Das Timing zwischen Fahrer und Musik stimmt manchmal, oft fehlt aber ein gelungene Verbindung",
 			"0-timing": "Die Bewegungen sind ungeplant und ihre Anordnung ist in Bezug auf das Timing mangelhaft",
 		}
 	}

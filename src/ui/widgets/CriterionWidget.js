@@ -20,7 +20,10 @@ export default class CriterionWidget {
 		row.className = 'criterion col-xs-12';
 		row.innerHTML = `
 			<div class="row"><label class="col-xs-4" data-i18n="${this.model.getLabel()}">${this.getSheet().translate(this.model.getLabel())}</label>
-			<span class="col-xs-5"><input type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider"></span>
+			<span class="col-xs-5">
+				<span class="strokes" id="crit-${this.model.getId()}-strokes"></span>
+				<input type="range" value="0" min="0" max="${max}" id="crit-${this.model.getId()}-slider">
+			</span>
 			<input class="col-xs-2 form-control input-sm sheet-value" type="number" id="crit-${this.model.getId()}-value" value="0" min="0" max="10" step="0.25"></div>
 			<div class="description text-right small" id="crit-${this.model.getId()}-description"></div>
 		`;
@@ -28,6 +31,7 @@ export default class CriterionWidget {
 		this.parent.getRootNode().appendChild(row);
 
 		// get nodes
+		let strokes = document.getElementById('crit-' + this.model.getId() + '-strokes');
 		this.sliderNode = document.getElementById('crit-' + this.model.getId() + '-slider');
 		this.valueNode = document.getElementById('crit-' + this.model.getId() + '-value');
 		this.descriptionNode = document.getElementById('crit-' + this.model.getId() + '-description');
@@ -37,6 +41,37 @@ export default class CriterionWidget {
 			this.sliderNode.addEventListener('input', this, false);
 			this.valueNode.addEventListener('input', this, false);
 		}, 10);
+
+		// add helper strokes
+		let intervals = this.model.getIntervals();
+		let keys = Object.keys(intervals);
+		for (let i = 0; i < keys.length; i++) {
+			let key = "" + keys[i];
+			let val = 0;
+
+			if (key.startsWith(">=")) {
+				val = parseInt(key.substr(2), 10);
+			} else if (key.startsWith("<=")) {
+				val = parseInt(key.substr(2), 10);
+			} else if (key.startsWith(">")) {
+				val = parseInt(key.substr(1), 10);
+			} else if (key.startsWith("<")) {
+				val = parseInt(key.substr(1), 10);
+			} else if (key.indexOf("-") !== -1) {
+				let parts = key.split("-");
+				val = parts[0];
+			}
+
+			if (val > 0) {
+				let stroke = document.createElement('span');
+				stroke.className = 'stroke';
+				stroke.style.marginLeft = (val * 10) + "%";
+
+				//this.sliderNode.clientWidth * val * 10 =
+
+				strokes.appendChild(stroke);
+			}
+		}
 	}
 
 	handleEvent(e) {
