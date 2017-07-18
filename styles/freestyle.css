@@ -1,0 +1,70 @@
+main {
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.tab-pane {
+    margin-top: 20px;
+}
+
+.nav-tabs > li > a:focus {
+    outline: none;
+}
+
+input[type=range] {
+    display: inline;
+    width: auto;
+	padding: 0;
+    position: relative;
+}
+
+.part-score {
+    margin-bottom: 10px;
+    font-size: 120%;
+}
+
+.criterion {
+	padding: 0;
+}
+
+.strokes {
+    position: absolute;
+    width: 120px;
+    margin-left: 10px;
+}
+
+.stroke {
+    position: absolute;
+    height: 22px;
+    width: 1px;
+    background-color: #DDD;
+}
+
+.sheet-value {
+	width: 55px;
+	padding: 2px 6px;
+	padding-right: 2px;
+	height: 25px;
+	margin-left: 20px;
+}
+
+.criterion .sheet-value {
+    margin-right: 15px;
+    float: right;
+}
+
+.category-score {
+	display: inline-block;
+	width: 55px;
+	margin-left: 10px;
+}
+
+.description {
+    min-height: 3px;
+}
+
+@media (max-width: 768px) {
+    .category.col-xs-4 {
+        width: 100%;
+    }
+}
